@@ -1,0 +1,210 @@
+# ============================================================
+#   ZethAC - Advanced Minecraft Anti-Cheat
+#   Configuration File - FIXED v1.1.0
+#   Ajustes basados en análisis de GrimAC para reducir FP
+# ============================================================
+
+prefix: "&8[&bZeth&3AC&8] "
+debug: false
+log-to-file: true
+log-file: "logs/zethac.log"
+
+database:
+  enabled: false
+  host: "localhost"
+  port: 3306
+  name: "zethac"
+  user: "root"
+  password: "password"
+
+alerts:
+  broadcast-to-staff: true
+  log-violations: true
+  discord-webhook: ""
+  console-alerts: true
+
+punishments:
+  ban-threshold: 40
+  kick-threshold: 20
+  time-window: 60
+  ban-message: "&cHas sido baneado por trampas.\n&7Plugin: ZethAC"
+  kick-message: "&cHas sido expulsado por comportamiento sospechoso.\n&7Plugin: ZethAC"
+  ban-duration: -1
+
+checks:
+  # ─── COMBAT ─────────────────────────────────────────────
+  killaura:
+    enabled: true
+    max-cps: 20
+    max-reach: 3.2
+    multi-target-threshold: 3
+    invalid-angle-threshold: 90.0
+    vl-threshold: 15
+    punishment: kick
+
+  reach:
+    enabled: true
+    max-reach: 3.3
+    compensate-ping: true
+    ping-compensation-ms: 200
+    vl-threshold: 12
+    punishment: kick
+
+  autoclicker:
+    enabled: true
+    max-cps: 22
+    consistency-threshold: 0.05
+    vl-threshold: 15
+    punishment: kick
+
+  aimassist:
+    enabled: true
+    max-yaw-speed: 120.0
+    max-pitch-speed: 80.0
+    perfect-angle-threshold: 0.005
+    gcd-threshold: 0.0005
+    require-combat: true
+    target-switch-grace-ticks: 5
+    vl-threshold: 18
+    punishment: kick
+
+  velocity:
+    enabled: true
+    min-h-reduction: 0.5
+    min-v-reduction: 0.6
+    knockback-grace-ticks: 10
+    vl-threshold: 12
+    punishment: kick
+
+  criticals:
+    enabled: true
+    check-fall-distance: true
+    vl-threshold: 8
+    punishment: kick
+
+  # ─── MOVEMENT ───────────────────────────────────────────
+  speed:
+    enabled: true
+    max-speed-buffer: 0.18
+    check-sprinting: true
+    check-sneaking: true
+    ice-multiplier: 1.55
+    soul-sand-multiplier: 0.4
+    block-change-grace-ticks: 10
+    potion-effect-grace-ticks: 10
+    vl-threshold: 15
+    punishment: kick
+
+  fly:
+    enabled: true
+    max-y-delta: 0.65
+    hover-threshold: 0.005
+    check-glide: true
+    check-trapdoor-false-positive: true
+    vl-threshold: 12
+    punishment: kick
+
+  nofall:
+    enabled: true
+    min-fall-distance: 3.0
+    vl-threshold: 8
+    punishment: kick
+
+  step:
+    enabled: true
+    max-step-height: 0.65
+    vl-threshold: 8
+    punishment: kick
+
+  phase:
+    enabled: true
+    block-penetration-threshold: 0.12
+    ignore-passable-blocks: true
+    teleport-grace-ticks: 20
+    vl-threshold: 10
+    punishment: kick
+
+  timer:
+    enabled: true
+    max-moves-per-second: 22.0
+    vl-threshold: 12
+    punishment: kick
+
+  spider:
+    enabled: true
+    vl-threshold: 8
+    punishment: kick
+
+  jesus:
+    enabled: true
+    water-speed-threshold: 0.25
+    vl-threshold: 8
+    punishment: kick
+
+  groundspoof:
+    enabled: true
+    vl-threshold: 8
+    punishment: kick
+
+  invalidmotion:
+    enabled: true
+    jump-velocity-tolerance: 0.005
+    vl-threshold: 8
+    punishment: kick
+
+  # ─── PLAYER ─────────────────────────────────────────────
+  badpackets:
+    enabled: true
+    max-book-pages: 50
+    max-sign-length: 80
+    vl-threshold: 5
+    punishment: kick
+
+  scaffold:
+    enabled: true
+    min-pitch: -85.0
+    rotation-threshold: 180.0
+    vl-threshold: 10
+    punishment: kick
+
+  fastplace:
+    enabled: true
+    min-place-delay: 3
+    vl-threshold: 10
+    punishment: kick
+
+  fastbreak:
+    enabled: true
+    vl-threshold: 10
+    punishment: kick
+
+  nuker:
+    enabled: true
+    max-blocks-per-tick: 1
+    vl-threshold: 8
+    punishment: kick
+
+  chest-stealer:
+    enabled: true
+    min-action-delay: 1
+    allow-shift-click: true
+    max-actions-per-tick: 2
+    vl-threshold: 12
+    punishment: kick
+
+  noswing:
+    enabled: true
+    vl-threshold: 8
+    punishment: kick
+
+  # ─── WORLD ──────────────────────────────────────────────
+  xray:
+    enabled: true
+    ore-mine-threshold: 5
+    window: 30
+    alert-only: true
+    punishment: alert
+
+  antiafk:
+    enabled: false
+    punishment: none
